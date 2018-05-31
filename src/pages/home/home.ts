@@ -4,7 +4,7 @@ import { NemProvider } from '../../providers/nem/nem';
 import { UtilProvider } from '../../providers/util/util';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../store/index';
-import * as AccountAction from '../../store/actions/account';
+import * as Action from '../../store/actions/account';
 import {INVOICE_QR, WALLET_QR, TESTNET_V, VER, DEMO_WALLET} from '../../config';
 
 @Component({
@@ -62,7 +62,7 @@ export class HomePage {
     async login(){
         let r = this.nem.loginCheck(this.password);
         if(r){
-            this.store.dispatch(new AccountAction.SetPassword(this.password));
+            this.store.dispatch(new Action.SetPassword(this.password));
             this.password = "";
             this.navCtrl.setRoot(HomePage);
         }else{
@@ -70,5 +70,16 @@ export class HomePage {
             let msg = await this.util.getTransalte("QR__FAILED_MSG");
             this.util.basicAlert(title, msg);
         }
+    }
+
+    async deleteAccount(){
+        let title = await this.util.getTransalte("ACCOUNT__DELETE_ACCOUNT");
+        let msg = await this.util.getTransalte("ACCOUNT__DELETE_CONFIRM_MSG");
+        let okHandler = (data) => {
+            this.nem.disconnect();
+            this.store.dispatch(new Action.Delete());
+            this.navCtrl.setRoot(HomePage);
+        };
+        this.util.promptAlert(title, msg, [], okHandler);
     }
 }

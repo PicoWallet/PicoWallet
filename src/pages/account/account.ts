@@ -89,20 +89,14 @@ export class AccountPage {
         this.util.setTransalte(lang);
     }
     async deleteAccount(){
-        let title = await this.util.getTransalte("ACCOUNT__DELETE_CONFIRM_TITLE");
+        let title = await this.util.getTransalte("ACCOUNT__DELETE_ACCOUNT");
         let msg = await this.util.getTransalte("ACCOUNT__DELETE_CONFIRM_MSG");
-        let placeholder = await this.util.getTransalte("ACCOUNT__DELETE_CONFIRM_PLACEHOLDER");
-        let inputs = [ { name: 'address', placeholder: placeholder }, ];
         let okHandler = (data) => {
-            if(data.address){
-                if(this.address == data.address){
-                    this.nem.disconnect();
-                    this.store.dispatch(new Action.Delete());
-                    this.navCtrl.setRoot(HomePage);
-                }
-            }
+            this.nem.disconnect();
+            this.store.dispatch(new Action.Delete());
+            this.navCtrl.setRoot(HomePage);
         };
-        this.util.promptAlert(title, msg, inputs, okHandler);
+        this.util.promptAlert(title, msg, [], okHandler);
     }
 
     async updateSavePassword(){

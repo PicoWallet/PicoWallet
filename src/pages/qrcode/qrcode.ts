@@ -10,7 +10,7 @@ import { Store } from '@ngrx/store';
 import * as Action from '../../store/actions/account';
 
 
-import {WALLET_QR,TESTNET_V, INVOICE_QR} from '../../config';
+import {WALLET_QR, INVOICE_QR} from '../../config';
 
 
 @IonicPage()

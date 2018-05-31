@@ -87,4 +87,12 @@ page-home {
         text-align: right;
         margin:2px 8px;
     }
+    .p__footer{
+        display: flex;
+        align-items:center;
+        margin-left:auto;
+        button{
+            color:red;
+        }
+    }
 }

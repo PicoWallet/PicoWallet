@@ -53,6 +53,10 @@ html, body, ion-app,ion-content,ion-input,input, .nav-decor,img, *{
     justify-content: center;
     align-items:center;
 }
+.p__row-right{
+    justify-content: right;
+    align-items:center;
+}
 .p__col{
     padding:5px 10px;
     width:100%;
@@ -103,5 +107,8 @@ ion-icon {
   }
   &[class*="md-apps"] {
     mask-image: url(../assets/icon/md-apps.svg);
+  }
+  &[class*="md-trash"] {
+    mask-image: url(../assets/icon/md-trash.svg);
   }
 }

@@ -80,7 +80,7 @@
     "ACCOUNT__DANGER_ZONE":"デンジャーゾーン",
     "ACCOUNT__DELETE_ACCOUNT":"アカウントの削除",
     "ACCOUNT__DELETE_CONFIRM_TITLE":"本当に消しますか?",
-    "ACCOUNT__DELETE_CONFIRM_MSG":"この操作は取り消せません。あなたはXEMを永遠に失う恐れがあります!",
+    "ACCOUNT__DELETE_CONFIRM_MSG":"この操作は取り消せません。",
     "ACCOUNT__DELETE_CONFIRM_PLACEHOLDER":"あなたのアドレス",
     "ACCOUNT__SAVE_PASSWORD":"自動ログイン",
     "ACCOUNT__CAREFUL":"注意！",
