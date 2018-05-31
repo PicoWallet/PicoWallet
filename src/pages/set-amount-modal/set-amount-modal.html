@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'COLLECT__SET_AMOUNT_TITLE' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="title">{{ 'COLLECT__SET_AMOUNT_MSG' | translate}}</div>
+  <ion-item> 
+    <ion-label>{{'PAY__AMOUNT' | translate}}</ion-label>
+    <ion-input type="number" [(ngModel)]="amount" #inputToFocus></ion-input>
+  </ion-item>
+  <div style="margin-top:15px;">
+    <button ion-button full class="p__blue-bt" (click)="setAmount()">{{'COLLECT__SET_AMOUNT' | translate }}</button>
+  </div>
+</ion-content>

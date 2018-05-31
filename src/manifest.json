@@ -1,0 +1,14 @@
+{
+  "name": "PicoWallet",
+  "short_name": "PicoWallet",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#FFFFFF",
+  "theme_color": "#2992e5",
+  "orientation":"portrait"
+}

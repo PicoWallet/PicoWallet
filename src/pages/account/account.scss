@@ -1,0 +1,41 @@
+page-account {
+    .account-balance{
+        .title{
+            padding:30px 10px 5px;
+            font-size: 18px;
+        }
+        .amount{
+            font-size: 42px;
+            padding:5px 10px 15px;
+            font-family: sans-serif;
+        }
+    }
+    ion-list{
+        background-color: #fff;
+    }
+    .setting{
+        margin-top:40px;
+        .header{
+            color:#666;
+            font-size: 16px;
+            padding:10px 14px 0px;
+        }
+        .active:before{
+            content:'●';
+            color:#1FC3B4;
+        }
+        .inactive:before{
+            content:'●';
+            color:#E01021;
+        }
+        ion-select{
+            width:100%;
+            max-width:100%;
+        }
+        .delete-account{
+            button{
+                color:#E01021;
+            }
+        }
+    }
+}

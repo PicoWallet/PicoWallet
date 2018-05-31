@@ -1,0 +1,32 @@
+<div class="transaction">
+  <ng-container *ngFor="let t of this.unconfirms.concat(confirms)">
+    <ng-container *ngIf="t.transaction">
+      <div class="t" (click)="detail(t)">
+        <div class="unconfirm" *ngIf="t.u">Unconfirm</div>
+        <div class="p__row">
+          <div class="address" [class.unconfirm]="t.u">{{t.transaction.recipient}}</div>
+          <div class="timestamp">{{t.transaction.timeStamp | fmtNemDate | date:'dd/MM/yy':'+0900'}}<br>{{t.transaction.timeStamp | fmtNemDate | date:'HH:mm':'+0900'}}</div>
+        </div>
+        <div class="p__row p__row-center">
+          <ng-container *ngIf="t.transaction.message">
+            <div *ngIf="t.transaction.message.type==1" class="message" [class.unconfirm]="t.u">{{t.transaction.message.payload | fmtHexToUtf8}}</div>
+            <div *ngIf="t.transaction.message.type==2" class="message" [class.unconfirm]="t.u">{{'TRANSACTION__ENCRYPTED' | translate}}</div>
+          </ng-container>
+          <ng-container *ngIf="t.transaction.message && (t.transaction.type == nem.PROVISIONNAMESPACE || t.transaction.type == nem.MOSAICDEFINITION|| t.transaction.type == nem.MOSAICSUPPLY)">
+            <div class="message">{{t.transaction.message}}</div>
+          </ng-container>
+          <div *ngIf="!t.transaction.mosaics" class="amount {{t.transaction.dw}}" [class.unconfirm]="t.u">{{t.transaction.dw == "w" ? "-": t.transaction.dw == "e" ? "±":"+" }}{{t.transaction.amount / 1000000}} XEM</div>
+          <div *ngIf="t.transaction.mosaics" class="mosaics amount d" [class.unconfirm]="t.u">
+            <div class="p__row p__row-center">
+              +{{t.transaction.mosaics.length}}<ion-icon name="apps"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</div>
+

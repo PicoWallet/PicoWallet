@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar class="g__header_main">
+    <ion-title>{{'GENERAL__COLLECT' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="g__bgc_main">
+  <div class="qr-area">
+    <div class="title">{{'COLLECT__PAYME' | translate }}</div>
+    <div class="qrcode" id="qrcode" *ngIf="show">
+      <qrcode [qrdata]="myAngularxQrCode" [size]="256" [level]="'M'"></qrcode>
+    </div>
+    <div class="amount" *ngIf="qr.data.amount>0">
+      {{qr.data.amount/ 1000000}}XEM
+    </div>
+    <div class="p__row p__row-center">
+      <button ion-button clear (click)="setAmount()">{{'COLLECT__SET_AMOUNT' | translate }}</button><ng-container *ngIf="!plt.is('ios')"> | <button ion-button clear (click)="saveImage()">{{'COLLECT__SAVE_IMAGE' | translate }}</button></ng-container>
+    </div>
+    <button ion-button clear (click)="more()">{{'COLLECT__SHOW_MORE' | translate }}</button>
+    <div class="more-setting">
+      <ng-container *ngIf="moreFlg">
+        <pay-edit [mode]="'collect'" (conf)="moreRefresh($event)" [qr]="qr"></pay-edit>
+      </ng-container>
+    </div>
+  </div>
+</ion-content>

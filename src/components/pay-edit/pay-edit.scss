@@ -1,0 +1,37 @@
+pay-edit {
+    .edit-container{
+        width:100%;
+        max-width:600px;
+        margin:0px auto;
+        background-color: #fff;
+        padding:8px 4px;
+        .area{
+            padding:5px 5px 10px;
+            border-bottom:1px solid #EDECED;
+        }
+        .attachMosaic{
+            margin-top:25px;
+            button{
+                color:#666;
+                text-transform: none;
+                padding-left:0px;
+                padding-bottom:0px;
+            }
+            margin-left:12px;
+        }
+    }
+    .confirm{
+        margin-top:15px;
+        padding:10px;
+    }
+    .fee-label{
+        color:#666;
+        margin-bottom:6px;
+    }
+    .fee-title{
+        color:#000;
+        font-size: 18px;
+        padding:8px;
+        background-color: #EEEEEE;
+    }
+}

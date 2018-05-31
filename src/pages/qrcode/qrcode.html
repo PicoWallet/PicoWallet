@@ -1,0 +1,29 @@
+<div class="scan-content">
+  <div class="scan-header">
+    <div class="p__row">
+      <div class="p__col">
+        <button ion-button icon-only clear (click)="back()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </div>
+      <div class="p__col p__col-right upload-bt" *ngIf="!isiOS">
+        <label class="label" for="uploadImage">{{'QR__UPLOAD' | translate }}</label>
+        <input id="uploadImage" type="file" accept="image/*" (change)="handleFileInput($event)"/>
+      </div>
+    </div>
+  </div>
+  <div class="scan-area">
+    <video #camera autoplay id="video" *ngIf="!hide"></video>
+    <canvas #canvas id="canvas" ></canvas>
+  </div>
+  <div class="scan-footer">
+    <div class="description">
+      {{'QR__DESCRIPTION' | translate }}
+    </div>
+    <div class="manual" *ngIf="QR_TYPE==INVOICE_QR">
+      <button ion-button clear small (click)="goToPayEditPage()">
+        {{'QR__MANUAL' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

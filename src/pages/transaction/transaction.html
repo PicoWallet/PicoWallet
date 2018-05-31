@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar class="g__header_main">
+    <ion-title>{{'GENERAL__TRANSACTION' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="center">
+    <table>
+      <tbody>
+        <tr *ngFor="let t of table">
+          <td class="label">{{"TRANSACTION__" + t.l | translate}}</td>
+          <td class="wrap" [innerHtml]="t.d"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ion-content>

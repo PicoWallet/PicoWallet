@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar class="g__header_main">
+    <ion-title>{{'GENERAL__ACCOUNT' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="g__bgc_gray">
+  <div class="account-balance">
+    <div class="title">
+      {{'ACCOUNT__BALANCE' | translate }}(XEM)
+    </div>
+    <div class="amount">
+      {{amount}}
+    </div>
+  </div>
+  <ion-list class="address">
+    <button ion-item text-wrap (tap)="copyAddress()">
+      <h4>{{'ACCOUNT__ADDRESS' | translate }}</h4>
+      <h3>{{address}}</h3>
+    </button>
+    <button ion-item text-wrap (tap)="goToMosaicPage()">
+      <h4>{{'ACCOUNT__MOSAIC' | translate }}</h4>
+      <h3>{{'ACCOUNT__OWNED' | translate }}:{{mosaic.length}}</h3>
+    </button>
+    <ion-item class="save_password">
+      <ion-label>{{'ACCOUNT__SAVE_PASSWORD' | translate }}</ion-label>
+      <ion-toggle  [(ngModel)]="save_password" (ionChange)="updateSavePassword()" checked="false"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-list class="setting">
+    <div class="header" [ngClass]="{'active':connecting,'inactive':!connecting}">
+      {{'ACCOUNT__NODE' | translate }}
+    </div>
+    <ion-item>
+      <ion-select [ngModel]="host" (ngModelChange)="chgNode($event)">
+        <ng-container *ngFor="let n of nodelist">
+          <ion-option [value]="n.host">{{n.host}}</ion-option>
+        </ng-container>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list class="setting">
+    <div class="header">
+      {{'ACCOUNT__LANGUAGE' | translate }}
+    </div>
+    <ion-item>
+      <ion-select [ngModel]="lang" (ngModelChange)="chgLanguage($event)">
+        <ion-option value="ja">{{'ACCOUNT__LANGUAGE_JA' | translate }}</ion-option>
+        <ion-option value="en">{{'ACCOUNT__LANGUAGE_EN' | translate }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list class="setting">
+    <div class="header">
+      {{'ACCOUNT__DANGER_ZONE' | translate }}
+    </div>
+    <ion-item class="delete-account">
+      <button ion-item (tap)="deleteAccount()">{{'ACCOUNT__DELETE_ACCOUNT' | translate }}</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

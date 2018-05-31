@@ -1,0 +1,65 @@
+<ng-container *ngIf="created&&autoLogin">
+  <ion-header>
+    <ion-toolbar class="g__header_main">
+      <div class="p__row">
+        <div class="title">
+          {{'GENERAL__TITLE' | translate }}
+        </div>
+      </div>
+      <div class="p__row p__nav">
+        <div class="p__col" *ngFor="let h of hitems">
+          <button clear ion-button class="text-on-bottom" (click)="h.f()">
+            <ion-icon [name]="h.n"></ion-icon>
+            {{h.l | translate }}
+          </button>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <transaction-history></transaction-history>
+  </ion-content>
+  <ion-footer>
+    <div class="ver">v{{version}}</div>
+  </ion-footer>
+</ng-container>
+<ng-container *ngIf="!created || (created&&!autoLogin)">
+  <div class="top">
+    <h1 class="title">{{'GENERAL__TITLE' | translate }}</h1>
+    <div class="msg">{{'HOME__DESCRIPTION' | translate }}</div>
+    <div class="ver">ver{{version}}</div>
+    <ng-container *ngIf="created&&!autoLogin">
+      <form  class="login-form" (ngSubmit)="login()">
+        <ion-item>
+          <ion-label>{{'GENERAL__PASSWORD' | translate}}:</ion-label>
+          <ion-input [placeholder]="'QR__PLEASE_PASSWORD' | translate" autocomplete="on" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <div class="btg">
+          <button ion-button class="p__blue-bt" type="submit" block>{{'GENERAL__LOGIN' | translate}}</button>
+        </div>
+      </form>
+      <div class="sepa">{{'GENERAL__SEPARATE' | translate}}</div>
+      <div class="btg">
+        <button class="orange-bt" ion-button outline small (click)="goToOtherPage('QrcodePage',{type:WALLET_QR})">{{'HOME__IMPORT_WITH_QR' | translate }}</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!created">
+      <div class="btg">
+        <button ion-button class="p__orange-bt" (click)="goToOtherPage('QrcodePage',{type:WALLET_QR})">{{'HOME__IMPORT_WITH_QR' | translate }}</button>
+      </div>
+      <div class="sepa">{{'GENERAL__SEPARATE' | translate}}</div>
+      <div class="btg">
+        <button ion-button class="p__blue-bt" (click)="goToDemo()">{{'HOME__IMPORT_DEMO' | translate }}</button>
+      </div>
+    </ng-container>
+    <div class="lang-select">
+      <ion-item>
+        <ion-label>{{'ACCOUNT__LANGUAGE' | translate }}</ion-label>
+        <ion-select [ngModel]="lang" (ngModelChange)="chgLanguage($event)">
+          <ion-option value="ja">{{'ACCOUNT__LANGUAGE_JA' | translate }}</ion-option>
+          <ion-option value="en">{{'ACCOUNT__LANGUAGE_EN' | translate }}</ion-option>
+        </ion-select>
+      </ion-item>
+    </div>
+  </div>
+</ng-container>

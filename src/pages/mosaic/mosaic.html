@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar class="g__header_main">
+    <ion-title>{{'GENERAL__MOSAIC' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let m of mosaic">
+      <ion-thumbnail item-start>
+        <!--<img [src]="'http://img.picowallet.net/icons/'+m['mosaicId'].namespaceId + ':' + m['mosaicId'].name + '/thumb.png'">-->
+        <img [src]="'https://tipnem.tk:6745/image-v1/'+m['mosaicId'].namespaceId + ':' + m['mosaicId'].name">
+      </ion-thumbnail>
+      <h2 class="name">{{m["mosaicId"].namespaceId + ":" + m["mosaicId"].name}}</h2>
+      <p class="quantity" *ngIf="!m.calc">{{'ACCOUNT__BALANCE' | translate }}:{{'ACCOUNT__LOADING' | translate }}</p>
+      <p class="quantity" *ngIf="m.calc">{{'ACCOUNT__BALANCE' | translate }}:{{m.quantity}}({{m["mosaicId"].name}})</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

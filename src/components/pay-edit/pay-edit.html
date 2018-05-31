@@ -1,0 +1,43 @@
+<div class="edit-container">
+  <div class="area">
+    <ion-label stacked>{{'PAY__SEND_ADDRESS' | translate }}</ion-label>
+    <div class="fee-title" *ngIf="mode=='collect'">
+      {{address}}
+    </div>
+    <div class="p__row" *ngIf="mode=='edit'">
+      <ion-input type="text" placeholder="{{'PAY__SEND_ADDRESS_PLACEHOLDER' | translate }}" [(ngModel)]="address" (input)="updateFee()"></ion-input>
+      <button ion-button icon-only clear style="color:#222" type="button" item-right (tap)="getAlias()">
+        <ion-icon name="ios-at-outline"> </ion-icon>
+      </button>
+    </div>
+  </div>
+  <div class="area">
+    <ion-label stacked>{{'PAY__AMOUNT' | translate }}</ion-label>
+    <ion-input type="number" [maxlength]="17" [(ngModel)]="amount" (input)="updateFee()"></ion-input>
+  </div>
+  <div class="area">
+    <ion-label stacked>{{'PAY__MESSAGE' | translate }}</ion-label>
+    <ion-input type="text" placeholder="{{'PAY__MESSAGE_PLACEHOLDER' | translate }}" [(ngModel)]="msg" (input)="updateFee()"></ion-input>
+  </div>
+  <div class="attachMosaic" *ngIf="mosaics.length>=2">
+    <button ion-button small clear (tap)="showAttachMosaicsCheckbox()">{{'PAY__ATTACH_MOSAIC' | translate}}</button>
+    <div class="area" *ngFor="let m of attachMosaics;let idx=index">
+      <div class="p__row">
+        <ion-label stacked>{{m.name}}</ion-label>
+        <button small clear ion-button icon-only (click)="detachMosaic(idx)"><ion-icon name="close"></ion-icon></button>
+      </div>
+      <ion-input type="number" [maxlength]="17" [(ngModel)]="m.amount" (input)="updateFee()"></ion-input>
+    </div>
+  </div>
+  <div class="fee" *ngIf="mode=='edit'">
+    <div class="fee-label">
+      {{'PAY__FEE' | translate }}
+    </div>
+    <div class="fee-title">
+      {{fee}}
+    </div>
+  </div>
+  <div class="confirm">
+    <button ion-button full class="p__blue-bt" (tap)="proceed()">{{TXT_CONFIRM | translate }}</button>
+  </div>
+</div>

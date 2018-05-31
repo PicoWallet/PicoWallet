@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar class="g__header_main">
+    <ion-title>{{'PAGETITLE__PAYCONFIRM' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="g__bgc_gray">
+  <div class="conf">
+    <div class="area" *ngFor="let i of items">
+      <div class="label">{{i.l | translate }}</div>
+      <div class="title">{{i.t}}</div>
+    </div>
+    <div class="area">
+      <div class="label">{{'PAY__MESSAGE' | translate }}</div>
+      <div class="title" *ngIf="msg==''">{{'PAY__NO_MESSAGE' | translate }}</div>
+      <div class="title" *ngIf="msg!=''">{{msg}}</div>
+    </div>
+    <div class="mosaics">
+      <div class="area" *ngFor="let m of mosaics">
+        <div class="label">{{m.name}}</div>
+        <div class="title">{{m.amount}}</div>
+      </div>
+    </div>
+    <div class="area">
+      <div class="label">{{'PAY__FEE' | translate }}</div>
+      <div class="title">{{fee}}</div>
+    </div>
+  </div>
+  <div class="confirm">
+    <div class="fee">
+      <span class="total">{{sum}}</span>XEM
+    </div>
+    <button ion-button full style="background-color:#E01021" [disabled]="block" (tap)="send()">{{'PAY__CONFIRM' | translate }}</button>
+  </div>
+</ion-content>

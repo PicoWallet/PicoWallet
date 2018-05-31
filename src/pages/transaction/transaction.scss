@@ -1,0 +1,19 @@
+page-transaction {
+    .center{
+        margin:auto;
+        max-width:600px;
+    }
+    td {
+        color:#333;
+        padding:4px 8px;
+        box-sizing: border-box;
+        border: 1px solid #dddddd;
+    }
+    .label{
+        width:100px;
+        font-weight:bold;
+    }
+    .wrap{
+        word-break:break-all;
+    }
+}

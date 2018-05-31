@@ -1,0 +1,107 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+html, body, ion-app,ion-content,ion-input,input, .nav-decor,img, *{
+    -webkit-user-select: auto;
+    -khtml-user-select: auto;
+    -ms-user-select: auto;
+    -moz-user-select: auto;
+    user-select: auto;
+    -webkit-touch-callout:default;
+}
+
+.g__bgc_gray{
+    background-color: #F5F5F5;
+}
+.g__bgc_main{
+    background-color: #2992e5;
+}
+.g__header_main{
+    .toolbar-background {
+        background-color: #2992e5;
+    }
+    color:#fff;
+    .toolbar-title {
+        color:#fff;
+    }
+    button{
+        color:#fff;
+    }
+}
+.g__bgc_sub{
+    background-color: #eee;
+}
+.p__row{
+    display: flex;
+    justify-content: space-around;
+}
+.p__row-center{
+    justify-content: center;
+    align-items:center;
+}
+.p__col{
+    padding:5px 10px;
+    width:100%;
+}
+.p__col-right{
+    text-align: right;
+    margin-left:auto;
+}
+.p__blue-bt,.p__blue-bt:hover{
+    background-color:#6690B9!important;
+    border:1px solid #6690B9!important;
+}
+.p__orange-bt,.p__orange-bt:hover{
+    background-color:#F3A632!important;
+    border:1px solid #F3A632!important;
+}
+
+ion-icon {
+    margin: 5px 5px 4px;
+    &[class*="ios-"], &[class*="md-"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+  &[class*="ios-at-outline"] {
+    mask-image: url(../assets/icon/ios-at-outline.svg);
+  }
+  &[class*="md-arrow-back"] {
+    mask-image: url(../assets/icon/md-arrow-back.svg);
+  }
+  &[class*="md-logo-yen"] {
+    mask-image: url(../assets/icon/logo-yen.svg);
+  }
+  &[class*="md-close"] {
+    mask-image: url(../assets/icon/md-close.svg);
+  }
+  &[class*="md-map"] {
+    mask-image: url(../assets/icon/md-map.svg);
+  }
+  &[class*="md-person"] {
+    mask-image: url(../assets/icon/md-person.svg);
+  }
+  &[class*="md-qr-scanner"] {
+    mask-image: url(../assets/icon/md-qr-scanner.svg);
+  }
+  &[class*="md-apps"] {
+    mask-image: url(../assets/icon/md-apps.svg);
+  }
+}

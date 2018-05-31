@@ -1,0 +1,29 @@
+page-collect {
+    .qr-area{
+        background-color: #fff;
+        text-align: center;
+        margin:20px;
+        .title{
+            font-size: 20px;
+            padding:20px 0px 10px;
+        }
+        .qrcode{
+            text-align: center;
+            width: 100%;
+            img{
+                margin:auto;
+            }
+        }
+        .amount{
+            font-size: 36px;
+            margin-top:10px;
+        }
+        button{
+            text-transform: none;
+            font-size: 16px;
+        }
+    }
+    .more-setting{
+        text-align: left;
+    }
+}

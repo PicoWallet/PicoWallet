@@ -1,0 +1,36 @@
+page-pay-confirm {
+    .conf{
+        margin:0px auto;
+        max-width:600px;
+        background-color: #fff;
+        padding:8px;
+    }
+    .area{
+        padding:5px 5px 10px;
+        border-bottom:1px solid #EDECED;
+    }
+    .label{
+        color:#666;
+        margin-bottom:6px;
+    }
+    .title{
+        color:#000;
+        font-size: 16px;
+        margin-left:6px;
+    }
+    .mosaics{
+        margin-left:12px;
+    }
+
+    .confirm{
+        margin:15px auto;
+        max-width:600px;
+        .fee{
+            text-align: center;
+            .total{
+                font-size: 34px;
+                margin-right:8px;
+            }
+        }
+    }
+}
