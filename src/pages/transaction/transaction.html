@@ -10,7 +10,7 @@
       <tbody>
         <tr *ngFor="let t of table">
           <td class="label">{{"TRANSACTION__" + t.l | translate}}</td>
-          <td class="wrap" [innerHtml]="t.d"></td>
+          <td class="wrap">{{t.d}}</td>
         </tr>
       </tbody>
     </table>
