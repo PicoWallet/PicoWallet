@@ -123,12 +123,12 @@ export const TESTNET_NODE_LIST: NODE[] = [
     port: 7891,
     protocol: "https"
   },
-  {
-    host: "https://nistest.opening-line.jp",
-    ws_port: 7779,
-    port: 7891,
-    protocol: "https"
-  },
+  // {
+  //   host: "https://nistest.opening-line.jp",
+  //   ws_port: 7779,
+  //   port: 7891,
+  //   protocol: "https"
+  // },
   {
     host: "https://nis-testnet.44uk.net",
     ws_port: 7779,
